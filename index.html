@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cute To Do List</title>
+    <style>
+        body {
+            background-color: #fce6e6;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 360px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff7474;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #ff7474;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .todo-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .todo-list li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fffce5;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .todo-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .todo-list li input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .todo-list li.completed {
+            text-decoration: line-through;
+            color: #b3b3b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cute To Do List</h1>
+        <div class="form-group">
+            <label for="task">New Task:</label>
+            <input type="text" id="task" placeholder="Type your task...">
+        </div>
+        <button onclick="addTask()">Add Task</button>
+        <ul class="todo-list" id="todoList">
+        </ul>
+    </div>
+
+    <script>
+        function addTask() {
+            var taskInput = document.getElementById("task");
+            var task = taskInput.value;
+            if (task.trim() !== "") {
+                var todoList = document.getElementById("todoList");
+                var li = document.createElement("li");
+                li.innerHTML = '<input type="checkbox">' + task;
+                todoList.appendChild(li);
+                taskInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
